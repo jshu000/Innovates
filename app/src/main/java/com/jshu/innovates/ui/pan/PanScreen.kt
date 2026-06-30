@@ -83,7 +83,7 @@ fun PanScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 4.dp, bottom = 24.dp),
-                placeholder = { Text("ABCDE1234F") },
+                placeholder = { Text("ABCDE1234F", color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)) },
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Ascii,
                     imeAction = ImeAction.Next
@@ -116,7 +116,7 @@ fun PanScreen(
                     value = uiState.day,
                     onValueChange = viewModel::onDayChange,
                     modifier = dateFieldsModifier,
-                    placeholder = { Text("DD") },
+                    placeholder = { Text("DD", color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)) },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Next),
                     keyboardActions = KeyboardActions(onNext = { focusManager.moveFocus(FocusDirection.Right) }),
                     singleLine = true,
@@ -130,7 +130,7 @@ fun PanScreen(
                     value = uiState.month,
                     onValueChange = viewModel::onMonthChange,
                     modifier = dateFieldsModifier,
-                    placeholder = { Text("MM") },
+                    placeholder = { Text("MM", color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)) },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Next),
                     keyboardActions = KeyboardActions(onNext = { focusManager.moveFocus(FocusDirection.Right) }),
                     singleLine = true,
@@ -144,7 +144,7 @@ fun PanScreen(
                     value = uiState.year,
                     onValueChange = viewModel::onYearChange,
                     modifier = Modifier.weight(1.5f),
-                    placeholder = { Text("YYYY") },
+                    placeholder = { Text("YYYY", color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)) },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Done),
                     keyboardActions = KeyboardActions(onDone = { focusManager.clearFocus() }),
                     singleLine = true,
@@ -181,7 +181,7 @@ fun PanScreen(
                 onClick = {
                     scope.launch {
                         snackbarHostState.showSnackbar("Details submitted successfully")
-                        delay(1500) // Give user time to see the snackbar before finishing
+                        delay(1000) // Give user time to see the snackbar before finishing
                         onFinish()
                     }
                 },
